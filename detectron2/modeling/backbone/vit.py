@@ -1,5 +1,6 @@
 import logging
 import math
+
 import fvcore.nn.weight_init as weight_init
 import torch
 import torch.nn as nn
@@ -188,7 +189,7 @@ class Block(nn.Module):
             input_size=input_size if window_size == 0 else (window_size, window_size),
         )
 
-        from timm.models.layers import DropPath, Mlp
+        from timm.layers import DropPath, Mlp
 
         self.drop_path = DropPath(drop_path) if drop_path > 0.0 else nn.Identity()
         self.norm2 = norm_layer(dim)
